@@ -19,9 +19,13 @@ const ArticleSchema = new Schema({
     author: {
         type: String
     },
-    note: {
-        type: Schema.Types.ObjectId,
-        ref: "Note"
+    favorited: {
+        type: Boolean,
+        default: false
+    },
+    dateScraped: {
+        type: Date,
+        default: Date.now
     }
 });
 
