@@ -1,0 +1,42 @@
+<div class="container-fluid article-container">
+    <ul class="list-unstyled favorite-list">
+    </ul>
+</div>
+
+<div class="modal fade" id="noteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Article Notes</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="noteTextArea">Leave a note on this article below.</label>
+                        <textarea class="form-control" id="noteTextArea" rows="3" placeholder="Start typing here..."></textarea>
+                    </div>
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary btn-block mb-2" id="submit">Submit</button>
+                    </div>
+                </form>
+                <br>
+                <ul class="list-group list-unstyled" id="note-list">
+                    <li id="noNotes"><p>There are no notes for this article! Be the first to add one...</p></li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<script src="/js/favorited.js"></script>
+<script src="/js/notesModal.js"></script>

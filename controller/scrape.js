@@ -8,7 +8,6 @@ module.exports = {
             .get('https://techcrunch.com/')
             .then(function (response) {
                 const $ = cheerio.load(response.data);
-                console.log('scraping');
 
                 $('div.post-block').each(function (i, element) {
                     let article = {
@@ -16,11 +15,12 @@ module.exports = {
                         link: $(element).find('.post-block__title__link').attr('href'),
                         summary: $(element).find('.post-block__content').text().trim(),
                         publishDate: $(element).find('.river-byline__time').attr('datetime'),
-                        author: $(element).find('.river-byline__authors').children('a').text().trim()
+                        author: $(element).find('.river-byline__authors').children('a').text().trim(),
+                        dateScraped: Date.now()
                     };
 
                     db.Article
-                        .update({ link: article.link }, article, { upsert: true })
+                        .updateOne({ link: article.link }, article, { upsert: true })
                         .then(function (dbArticle) {
                             console.log(dbArticle);
                         })
@@ -29,22 +29,22 @@ module.exports = {
                         });;
                 })
             })
-            .then(function (dbArticle) {
-                if (dbArticle.length === 0) {
-                    res.json({
-                        message: "You have viewed all of the articles today."
-                    });
-                }
-                else {
-                    res.json({
-                        message: `Here are ${dbArticle.length} new articles for you to view!`
-                    });
-                }
-            })
-            .catch(function (err) {
-                res.json({
-                    message: "Scrape completed"
-                });
-            });
+            // .then(function (dbArticle) {
+            //     if (dbArticle.length === 0) {
+            //         res.json({
+            //             message: "You have viewed all of the articles today."
+            //         });
+            //     }
+            //     else {
+            //         res.json({
+            //             message: `Here are ${dbArticle.length} new articles for you to view!`
+            //         });
+            //     }
+            // })
+            // .catch(function (err) {
+            //     res.json({
+            //         message: "Scrape completed"
+            //     });
+            // });
     }
 }

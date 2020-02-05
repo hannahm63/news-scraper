@@ -1,58 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">TC Scraper</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Favorites</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
-<div class="jumbotron jumbotron-fluid bg-dark text-light">
-    <div class="container">
-        <h1 class="display-4">TechCrunch News Scraper</h1>
-        <p class="lead">Scrape articles from TechCrunch and save your favorite ones! You can also add notes to each
-            article and view notes left by others.</p>
-    </div>
-</div>
-
 <div class="container-fluid article-container">
-    <ul class="list-unstyled">
-        {{#each articles}}
-        <li class="media my-1 px-5 pb-2 pt-3 border">
-            <div class="media-body">
-                <a href="{{this.link}}"><h5 class="mt-0 mb-1">Sdfnsadvn{{this.title}}</h5></a>
-                <h6>Written By: {{this.author}}</h6>
-                <h6>Published: {{this.publishDate}}</h6>
-                <p>{{this.summary}}</p>
-            </div>
-            {{!-- when saved, button becomes success and icon becomes fas --}}
-            <button type="button" class="btn btn-secondary d-inline favorite-btn"><i class="far fa-bookmark"></i></button>
-        </li>
-        {{/each}}
+    <ul class="list-unstyled article-list">
     </ul>
-
-    {{#unless articles.length}}
-    <div>
-        <p class="text-center">No new articles to display....</p>
-        <button type="button" class="btn btn-secondary d-block my-1 mx-auto" id="scrape-new-btn">Scrape New Articles</button>
-        <button type="button" class="btn btn-secondary d-block my-1 mx-auto" id="view-favorites-btn">View Favorite Articles</button>
-        <button type="button" class="btn btn-secondary d-block my-1 mx-auto" id="view-previous-btn">View Previous Articles</button>
-    </div>
-    {{/unless}}
 </div>
 
-<footer class="navbar fixed-bottom navbar-dark bg-dark">
-  <a class="text-light m-auto" href="http://hannahm63.github.io" target="_blank">Hannah Melton</a>
-</footer>
+<br>
 
 <script src="/js/index.js"></script>

@@ -1,1 +1,3 @@
 # news-scraper
+
+A Node/Express + MongoDB web application that utilizes axios and cheerio npm packages to scrape Tech Crunch's website for news articles. Articles are upserted to MongoDB using Mongoose and then displayed on the home page. Visitors can add articles to or or remove articles from the favorites list and add notes about the articles. Home and Favorites web pages are rendered using Handlebars.

@@ -6,8 +6,10 @@ module.exports = {
             .find(req.query)
             .sort({ publishDate: -1 })
             .then(function (dbArticle) {
-                res.json(dbArticle);
-            });
+                console.log(dbArticle);
+                res.send(dbArticle);
+            })
+            
     },
     delete: function (req, res) {
         db.Article
@@ -16,9 +18,16 @@ module.exports = {
                 res.json(dbArticle);
             });
     },
-    update: function (req, res) {
+    updateFavorites: function (req, res) {
         db.Article
-            .findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true })
+            .findOneAndUpdate({ _id: req.params.id }, { $set: { favorited: true } }, { new: true })
+            .then(function (dbArticle) {
+                res.json(dbArticle);
+            });
+    },
+    updateUnfavorites: function (req, res) {
+        db.Article
+            .findOneAndUpdate({ _id: req.params.id }, { $set: { favorited: false } }, { new: true })
             .then(function (dbArticle) {
                 res.json(dbArticle);
             });

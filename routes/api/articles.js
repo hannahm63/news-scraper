@@ -1,8 +1,9 @@
 const router = require('express').Router();
-const artileController = require('../../controller/article');
+const articleController = require('../../controller/article');
 
-router.get('/', artileController.findAll)
-    .delete('/:id', artileController.delete)
-    .put('/:id', artileController.update);
+router.get('/', articleController.findAll)
+    .delete('/:id', articleController.delete)
+    .put('/favorites/:id', articleController.updateFavorites)
+    .put('/unfavorites/:id', articleController.updateUnfavorites);
 
 module.exports = router;

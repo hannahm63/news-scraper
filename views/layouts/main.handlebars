@@ -23,7 +23,39 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">TC Scraper</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/" id="home-nav">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/favorited" id="favorites-nav">Favorites</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid bg-dark text-light">
+        <div class="container">
+            <h1 class="display-4">TechCrunch News Scraper</h1>
+            <p class="lead">View articles scraped from TechCrunch and save your favorite ones! You can also add notes to each
+                article and view notes left by others.</p>
+        </div>
+    </div>
+
     {{{ body }}}
+
+    <footer class="navbar navbar-dark bg-dark">
+        <a class="text-light m-auto p-3" href="http://hannahm63.github.io" target="_blank">Hannah Melton</a>
+    </footer>
+
 </body>
 
 </html>
